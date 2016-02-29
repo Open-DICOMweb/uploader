@@ -1,0 +1,445 @@
+/*
+html,
+body {
+  background: #333;
+  color: #fff;
+  font-family: sans-serif;
+  }
+*/
+table {
+  display: table;
+  margin: 4px auto;
+  border-collapse: collapse;
+  border: 1px solid black;
+  border-bottom: 2px solid black;
+  /* width: 100%; */
+  font-family: Arial sans-serif;
+  }
+
+caption {
+  display: table-caption;
+  text-align: center;
+  caption-side: top;
+  font-weight: bold;
+  }
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+  background-color: darkblue;
+  color: white;
+  padding: 2px 2px;
+  }
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+  }
+
+/*
+tbody:hover > tr, td {
+  opacity: .5;
+  }
+
+tbody:hover > tr:hover td {
+  text-shadow: none;
+  color:#2d2d2d;
+  font-weight: bold;
+  }
+*/
+tbody tr:nth-child(odd) {
+  background-color: ghostwhite;
+  }
+
+tfoot {
+  display: table-footer-group;
+  vertical-align: middle;
+  border-color: inherit;
+  text-align: center;
+  background-color: lightgray;
+  }
+
+table > tr {
+  vertical-align: middle;
+  }
+
+col {
+  display: table-column;
+  }
+
+colgroup {
+  display: table-column-group;
+  }
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  }
+
+th,
+td {
+  display: table-cell;
+  vertical-align: inherit;
+  border: 1px solid darkgray;
+  padding: 4px 4px;
+  }
+
+th {
+  font-weight: bold;
+  }
+
+th:nth-child(2) {
+  text-align: left;
+  }
+
+th:nth-child(3) {
+  text-align: left;
+  }
+
+td:nth-child(4) {
+  text-align: center;
+  }
+
+td:nth-child(5) {
+  text-align: center;
+  }
+
+td:nth-child(6) {
+  text-align: center;
+  }
+
+a {
+  color: black;
+  text-decoration: none;
+  }
+a:hover {
+  text-decoration: underline;
+  }
+
+/****************
+ * Tooltip Styles
+ ****************/
+
+/*** Base styles for the element that has a tooltip ***/
+[data-tooltip],
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  }
+
+/*** Base styles for the entire tooltip ***/
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before,
+.tooltip:after {
+  display: none;
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition:
+      opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -moz-transition:
+      opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transition:
+      opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+  }
+
+/*** Show the entire tooltip on hover and focus ***/
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  display: block;
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  }
+
+/*** Base styles for the tooltip's directional arrow ***/
+.tooltip:before,
+[data-tooltip]:before {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  z-index: 100;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+  }
+
+/*** Base styles for the tooltip's content area ***/
+.tooltip:after,
+[data-tooltip]:after {
+  z-index: 101;
+  /* min-width: 80px */;
+  max-width: 240px;
+  margin: auto;
+  width: auto;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  border: 1px solid navy;
+  border-radius: 5px;
+  padding: 2px;
+  content: attr(data-tooltip);
+  font-weight: normal;
+  white-space: pre-wrap;
+  text-align: left;
+  /* TODO: handle overflow */
+  /* overflow: scroll; */
+  }
+
+/* Directions */
+
+/*** Top Center (default) ***/
+/* TODO: fix left margin - It should be centered on the cell */
+.tooltip:before,
+.tooltip:after,
+.tooltip-top:before,
+.tooltip-top:after {
+  bottom: 80%;
+  top: auto;
+  }
+
+.tooltip:before,
+.tooltip-top:before {
+  left: 50%;
+  margin-left: 50%;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip:after,
+.tooltip-top:after {
+  left:0;
+  right: 0;
+  }
+
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px);
+  }
+
+/*** Top Left ***/
+.tooltip-top-left:before,
+.tooltip-top-left:after {
+  bottom: 80%;
+  top: auto;
+  left: 0;
+  margin-left: 0;
+
+  }
+
+.tooltip-top-left:before {
+  margin-left: 25%;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-top-left:hover:before,
+.tooltip-top-left:hover:after,
+.tooltip-top-left:focus:before,
+.tooltip-top-left:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px);
+  }
+
+/*** Top Right ***/
+.tooltip-top-right:before,
+.tooltip-top-right:after {
+  bottom: 80%;
+  top: auto;
+  right: 0;
+  margin-right: 0;
+  }
+
+/* Arrow on bottom, right */
+.tooltip-top-right:before {
+  margin-right: 25%;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-top-right:hover:before,
+.tooltip-top-right:hover:after,
+.tooltip-top-right:focus:before,
+.tooltip-top-right:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px);
+  }
+
+/*** Bottom Center ***/
+.tooltip-bottom:before,
+.tooltip-bottom:after {
+  top: 75%;
+  bottom: auto;
+  }
+
+/* Arrow on top, center */
+.tooltip-bottom:before {
+  margin-left: 50%;
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-bottom:after {
+  left:0;
+  right: 0;
+  }
+
+.tooltip-bottom:hover:before,
+.tooltip-bottom:hover:after,
+.tooltip-bottom:focus:before,
+.tooltip-bottom:focus:after {
+  -webkit-transform: translateY(12px);
+  -moz-transform:    translateY(12px);
+  transform:         translateY(12px);
+  }
+
+/*** Bottom Left ***/
+.tooltip-bottom-left:before,
+.tooltip-bottom-left:after {
+  top: 75%;
+  bottom: auto;
+  left: 0;
+  margin-left: 0;
+  }
+
+.tooltip-bottom-left:before {
+  left: 25%;
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-bottom-left:hover:before,
+.tooltip-bottom-left:hover:after,
+.tooltip-bottom-left:focus:before,
+.tooltip-bottom-left:focus:after {
+  -webkit-transform: translateY(12px);
+  -moz-transform:    translateY(12px);
+  transform:         translateY(12px);
+  }
+
+/*** Bottom Right ***/
+.tooltip-bottom-right:before,
+.tooltip-bottom-right:after {
+  top: 80%;
+  bottom: auto;
+  right: 0;
+  margin-right: 0;
+  }
+
+/* Arrow on bottom right */
+.tooltip-bottom-right:before {
+  right: 25%;
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-bottom-right:hover:before,
+.tooltip-bottom-right:hover:after,
+.tooltip-bottom-right:focus:before,
+.tooltip-bottom-right:focus:after {
+  -webkit-transform: translateY(12px);
+  -moz-transform:    translateY(12px);
+  transform:         translateY(12px);
+  }
+
+/*** Left ***/
+.tooltip-left:before,
+.tooltip-left:after {
+  right: 100%;
+  bottom: 5%;
+  left: auto;
+  }
+
+/* Arrow on right edge, centered */
+.tooltip-left:before {
+  margin-left: 0;
+  margin-right: -12px;
+  margin-bottom: 15%;
+  border-top-color: transparent;
+  border-left-color: #000;
+  border-left-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-left:hover:before,
+.tooltip-left:hover:after,
+.tooltip-left:focus:before,
+.tooltip-left:focus:after {
+  -webkit-transform: translateX(-6px);
+  -moz-transform:    translateX(-6px);
+  transform:         translateX(-6px);
+  }
+
+/*** Right ***/
+.tooltip-right:before,
+.tooltip-right:after {
+  left: 100%;
+  bottom: 5%;
+  top: auto;
+  height: auto;
+  }
+
+/* Arrow on left edge, centered */
+.tooltip-right:before {
+  margin-right: 0;
+  margin-left: -12px;
+  bottom: 25%;
+  border-top-color: transparent;
+  border-right-color: #000;
+  border-right-color: hsla(0, 0%, 20%, 0.9);
+  }
+
+.tooltip-right:hover:before,
+.tooltip-right:hover:after,
+.tooltip-right:focus:before,
+.tooltip-right:focus:after {
+  -webkit-transform: translateX(6px);
+  -moz-transform:    translateX(6px);
+  transform:         translateX(6px);
+  }
+

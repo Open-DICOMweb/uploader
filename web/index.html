@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Files</title>
+  <link rel="stylesheet" href="styles.css">
+  <script async src="main.dart" type="application/dart"></script>
+  <script async src="packages/browser/dart.js"></script>
+</head>
+
+<body>
+<h3>Upload</h3>
+
+<div class="wrapper">
+  <!-- How to change the label and restyle the button -->
+  <input type="file" id="files" name="files" title="Select Files" multiple>
+  <br>
+  <br>
+  <button id="startUpload">Upload</button>
+  <div>
+    <!-- replace svg spinner with web or ?? animation -->
+    <img style="visibility: hidden" class="spin loading" src="spin.svg" alt="uploading"
+         width="30px">
+    <p id="progress" style="display: inline; vertical-align: super"></p>
+    <p id="total" style="display: inline; vertical-align: super"></p>
+  </div>
+  <div>
+    <!-- replace svg spinner with web or ?? animation -->
+    <img class="spin processing" src="spin.svg" alt="uploading" width="30px"
+         style="visibility: hidden">
+    <p id="process" style="display: inline; visibility: hidden; vertical-align: super">file
+      processing on the server</p>
+  </div>
+</div>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>

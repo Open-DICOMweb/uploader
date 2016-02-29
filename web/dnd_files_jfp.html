@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright (c) 2016, the Open DICOMweb Project.  Please see the AUTHORS file
+  for details. All rights reserved. Use of this source code is governed by a
+  BSD-style license that can be found in the LICENSE file.
+-->
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jfp dnd_files</title>
+  <link rel="stylesheet" href="dnd_files.css">
+  <script type="application/dart" src="dnd_files_jfp.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</head>
+<body>
+<h3>ACR Web Client</h3>
+<!-- Simple pop-up dialog box, containing a form -->
+
+<dialog open>
+  <form id="login">
+    <div class="login" id="acr-login">
+      <menu>
+        <label class="left-align">User: <input type="text" title="Username" required placeholder="username"
+                                               autocomplete="on" width=20></label>
+        <br>
+        <!--TODO: fix password pattern -->
+        <label class="left-align">Password: <input type="password" pattern="[0-9A-Za-Z]"
+                                                   required minlength=10 placeholder="password"></label>
+        <button id="cancel" type="reset">Cancel</button>
+        <button type="submit">Confirm</button>
+      </menu>
+    </div>
+  </form>
+</dialog>
+<form id="trial-upload-id">
+  <div class="trial-upload">
+    <label>System: <input list="system" name="HealthSystem" id="system-list"
+                          title="The Health System doing this study" width=20>
+    </label>
+    <br>
+    <label>Site: <input list="site" name="site" id="site-list"
+                        title="Site where data was collected" width=20>
+    </label>
+    <br>
+    <label>Trial: <input list="trial" name="TrialName" id="trial-name"
+                         title="Trial Identifier" width=20>
+    </label>
+    <br>
+    <label>Subject: <input list="subject" name="SubjectName" id="subject-name"
+                           title="Subject Identifier" width=20>
+    </label>
+    <br>
+    <label>Step: <input list="step" name="ProtocolStep" id="protocol-step"
+                        title="The step or stage in this protocol" width=20>
+    </label>
+  </div>
+  <input type="file" id="files" name="files[]" title="Select files to upload" multiple/>
+</form>
+<div id="drop-zone">Drop files to be uploaded here</div>
+<output id="list"></output>
+<div id="table"></div>
+<datalist id="system">
+  <option value="Columbia-Presbyterian">
+  <option value="Duke Health System">
+  <option value="Johns Hopkins">
+  <option value="Univ of Pennsylvania">
+  <option value="Yale">
+</datalist>
+<datalist id="site">
+  <option value="Columbia">
+  <option value="Duke">
+  <option value="Johns Hopkins East Baltimore">
+  <option value="Johns Hopkins Bayview">
+  <option value="Johns Hopkins Suburban">
+</datalist>
+<datalist id="step">
+  <option value="Trial 1">
+  <option value="Trial 2">
+  <option value="Trial 3">
+  <option value="Trial 4">
+  <option value="Trial 5">
+</datalist>
+<datalist id="subject">
+  <option value="Subject 1">
+  <option value="Subject 2">
+  <option value="Subject 3">
+  <option value="Subject 4">
+  <option value="Subject 5">
+</datalist>
+<datalist id="trial">
+  <option value="Step 1">
+  <option value="Step 2">
+  <option value="Step 3">
+  <option value="Step 4">
+  <option value="Step 5">
+</datalist>
+</body>
+</html>

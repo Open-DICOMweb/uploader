@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright (c) 2016, the Open DICOMweb Project.  Please see the AUTHORS file
+  for details. All rights reserved. Use of this source code is governed by a
+  BSD-style license that can be found in the LICENSE file.
+-->
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jfp dnd_files</title>
+  <!--
+<link rel="stylesheet" href="dnd_files.css">
+<script type="application/dart" src="dnd_files_jfp.dart"></script>
+<script src="packages/browser/dart.js"></script>
+-->
+  <style type="text/css">
+    #login-container {
+      display: block;
+      margin: auto;
+      width: 300px;
+      background-color: azure;
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    label {
+      display: inline-block;
+      width: 60px;
+      text-align: right;
+      margin: 5px 2px 5px 20px;
+    }
+
+    input {
+      display: inline-block;
+      text-align: left;
+      margin: 2px;
+    }
+
+    button {
+      padding: 2px;
+      margin: 5px 5px 5px 5px;
+    }
+
+    #buttons {
+      padding-left: 100px;
+    }
+
+    #acr-connect {
+      font-family: Arial sans-serif;
+      font-weight: bold;
+      font-style: italic;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<h2>ACR Web Client</h2>
+<!-- A Sample ACR Connect Login Page -->
+<div id="login-container">
+  <form id="acr-login" onsubmit="{{submitLogin}}">
+    <span id="acr-connect">ACR Connect</span>
+    <div class="block">
+      <label>Username </label>
+      <input type="text" title="Username" required placeholder="username"
+             autocomplete="on" width="20"/>
+    </div>
+    <!--TODO: fix password pattern -->
+    <div class="block">
+      <label>Password </label>
+      <input type="password" pattern="[0-9A-Za-Z]"
+             required min="10" placeholder="password" />
+    </div>
+    <div class="block" id="buttons">
+      <button id="cancel" type="reset" title="Click to cancel login">Cancel</button>
+      <button type="submit" title="Click to confirm your input">Confirm</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
