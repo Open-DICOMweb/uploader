@@ -1,0 +1,21 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Monitoring Upload Progress</title>
+  <link rel="stylesheet" href="css/uploader.css">
+</head>
+<body>
+<h3>Monitoring the Progress of a file upload</h3>
+<input type="file" id="files" name="file" multiple/>
+<div id="loading">
+  <span id="filename"></span>
+  <span id="load-percent"></span>
+  <button id="cancel-read">Cancel read</button>
+  <br>
+  <progress class="progress-bar" max="100" id="progress-bar">0%</progress>
+</div>
+
+<script type="application/dart" src="monitoring.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>

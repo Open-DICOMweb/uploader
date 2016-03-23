@@ -1,0 +1,163 @@
+/*
+  Copyright (c) 2016, the Open DICOMweb Project.  Please see the AUTHORS file for details.
+*/
+
+/* Element Definitions */
+body {
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 10px;
+  }
+
+label {
+  display: inline;
+  width: 60px;
+  margin-left: 2px;
+  }
+
+input {
+  display: inline;
+  width: 115px;
+  margin-left: 2px;
+  }
+
+select {
+  display: inline;
+  width: 115px;
+  margin-left: 2px;
+  }
+
+option {
+  margin: 2px;
+  padding: 0;
+  }
+output {
+  display: block;
+  }
+
+/* Class Definitions */
+.upload-form {
+  padding: 10px;
+  }
+
+.field {
+  padding: 2px;
+  margin: 1px;
+  width: 115px;
+  background: #eee; }
+
+.thumb {
+  border: 1px solid #000;
+  height: 75px;
+  margin: 10px 5px 0 0;
+  }
+
+/* Identifier Definitions */
+#user-form {
+  display: block;
+  }
+
+#trial-info-form {
+  display: block;
+  }
+
+#select-files-form {
+  display: block;
+  margin: 10px 1px 10px 15px;
+  }
+#byte-content {
+  margin: 5px 0;
+  max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  }
+
+#byte-range {
+  margin-top: 5px;
+  }
+
+#files {
+  margin: 10px 1px 10px 15px;
+  }
+
+#drop-zone {
+  display: block;
+  border: 2px dashed #bbb;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #bbb;
+  font-size: 20pt;
+  font-weight: bold;
+  padding: 25px;
+  text-align: center;
+  margin: -1px 15px -1px 15px;
+  }
+
+#drop-zone.hover {
+  background-color: #def;
+  border-color: #777;
+  color: #777;
+  }
+
+#add-files-button {
+  display: inline;
+  margin: 10px 1px 10px 15px;
+    }
+
+/* Progress Bars */
+progress {
+  width: 80%;
+  }
+.progress-bar {
+  display: none;
+  background-color: lightgray;
+  color: gold;
+  border: 1px solid black;
+  font-size: 20px;
+  margin: 10px 0;
+  opacity: 0;
+  /*
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  */
+  transition: opacity 0.5s linear;
+  padding: 1px;
+  }
+
+progress,
+.progress-bar.loading {
+  opacity: 1.0;
+  visibility: visible;
+  }
+
+#loading {
+  visibility: visible;
+  }
+
+#cancel-read {
+  visibility: hidden;
+  }
+
+
+
+#col-1 {
+  display: block;
+  width: 160px;
+  float: left;
+  }
+#col-2 {
+  display: block;
+  margin-left: 235px;
+  width: 160px;
+  float: none;
+  }
+
+
+
+
+

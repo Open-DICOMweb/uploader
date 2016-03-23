@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright (c) 2016, the Open DICOMweb Project.  Please see the AUTHORS file
+  for details. All rights reserved. Use of this source code is governed by a
+  BSD-style license that can be found in the LICENSE file.
+-->
+
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <title>ACR Test Uploader</title>
+  <link rel="stylesheet" href="css/uploader.css">
+  <script type="application/dart" src="uploader.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</head>
+<body>
+<h3>ACR Web Client</h3>
+<form class="upload-form" id="user-form">
+  <div class="field">
+    <label class="label" id="user-label">User</label>
+    <select type="text" class="input-list" id="user-input"  title="Username">
+      <option class="option" value="jfphilbin">jfphilbin</option>
+      <option class="option" value="twang">twang</option>
+      <option class="option" value="jsmith">jsmith</option>
+    </select>
+  </div>
+  <div class="field">
+    <label class="label" id="site-label">Site</label>
+    <select type="text" class="input-list" id="site-input" title="Site Name">
+      <option class="option" value="columbia">Columbia</option>
+      <option class="option" value="yale">Yale</option>
+      <option class="option" value="hopkins">Hopkins</option>
+      <option class="option" value="duke">Duke</option>
+      <option class="option" value="penn">Penn</option>
+    </select>
+  </div>
+</form>
+<!-- Simple pop-up dialog box, containing a form -->
+<form class="upload-form" id="trial-info-form">
+  <div id="col-1">
+    <div class="field" id="user">
+      <label id="trial">Project (Trial):</label>
+      <input list="trial" name="TrialName" id="trial-name"
+             data-tooltip="Identifier"
+             width=20
+             placeholder="project/trial">
+    </div>
+    <div class="field">
+      <label>Subject: </label>
+      <input list="subject" name="SubjectName" id="subject-name"
+             title="Subject Identifier" width=20
+             placeholder="subject">
+    </div>
+  </div> <!-- col-1 -->
+  <div id="col-2">
+    <div class="field">
+      <label>System: </label>
+      <input list="system" name="HealthSystem" id="project-list"
+             title="The Health System doing this study" width=20
+             placeholder="system">
+    </div>
+    <div class="field">
+      <label>Program: </label>
+      <input list="program" name="HealthSystem" id="program-list"
+             title="The Health System doing this study" width=20
+             placeholder="program">
+    </div>
+    <div class="field">
+      <label>Time Code (Step): </label>
+      <input list="step" name="ProtocolStep" id="protocol-step"
+             title="The step or stage in this protocol" width=20
+             placeholder="time code"
+             data-tooltip="">
+    </div>
+  </div> <!-- col-2 -->
+  <hr>
+</form>
+
+<!--
+  This is the area where files to be uploaded are either selected
+  from an input pick-list, or dropped into a drag&drop area.  Once files
+  have been selected this form is hidden, unless the [Add Files] button
+  is clicked.
+-->
+<form class="upload-form" id="select-files-form">
+  <div><Strong>Choose Files to Upload</Strong></div>
+  <input type="file" id="files" name="files[]" title="Select files to upload" multiple/>
+  <div id="drop-zone">Drop files to be uploaded here</div>
+</form>
+<!--
+  Once Some Files have been Selected the following button becomes visible.
+  If it is clicked the [select-files] form becomes visible and this button
+  becomes hidden until the more files have been selected.
+-->
+<button id="add-files-button">Add Files</button>
+<output id="list"></output>
+<div id="files-table"></div>
+
+<!-- Fake values for datalist
+<datalist id="user">
+  <option value="jfphilbin">
+  <option value="twang">
+</datalist>
+<datalist id="system">
+  <option value="Columbia-Presbyterian">
+  <option value="Duke Health System">
+  <option value="Johns Hopkins">
+  <option value="Univ of Pennsylvania">
+  <option value="Yale University Health System">
+</datalist>
+<datalist id="site">
+  <option value="Columbia">
+  <option value="Duke">
+  <option value="Johns Hopkins East Baltimore">
+  <option value="Johns Hopkins Bayview">
+  <option value="Johns Hopkins Suburban">
+</datalist>
+<datalist id="step">
+  <option value="Trial 1">
+  <option value="Trial 2">
+  <option value="Trial 3">
+  <option value="Trial 4">
+  <option value="Trial 5">
+</datalist>
+<datalist id="subject">
+  <option value="Subject 1">
+  <option value="Subject 2">
+  <option value="Subject 3">
+  <option value="Subject 4">
+  <option value="Subject 5">
+</datalist>
+<datalist id="trial">
+  <option value="Step 1">
+  <option value="Step 2">
+  <option value="Step 3">
+  <option value="Step 4">
+  <option value="Step 5">
+</datalist>
+<datalist id="program">
+  <option value="Program 1">
+  <option value="Program 2">
+  <option value="Program 3">
+  <option value="Program 4">
+  <option value="Program 5">
+</datalist>
+ -->
+</body>
+</html>

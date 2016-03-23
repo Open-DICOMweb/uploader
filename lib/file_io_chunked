@@ -1,0 +1,40 @@
+//TODO: Copyright
+library odw.utilities.file_io_chunked;
+
+
+readFile(String inName, [chunkSize= 8 * MB]) async {
+
+}
+
+writeFile(String outName, [chunkSize= 8 * MB]) async {
+
+}
+
+Future copyFile(String inName, String outName, [chunkSize= 1 * MB]) async {
+  Uint8List chunk = new Uint8List(chunkSize);
+
+  File inFile = new File(inName);
+  int length = await inFile.length();
+  int nChunks = (length / chunkSize).ceil();
+
+  File outFile = new File('$inName.output');
+  print('input: ${inFile.path}, output: ${outFile.path}');
+
+  RandomAccessFile rafIn = await inFile.open(mode: FileMode.READ);
+  RandomAccessFile rafOut = await outFile.open(mode: FileMode.WRITE_ONLY);
+  int inPos = 0;
+  int outPos = 0;
+
+  print('chunkSize: $chunkSize, nChunks: $nChunks');
+  for(int i = 1; i <= nChunks; i++) {
+    //inPos = await rafIn.position();
+    //outPos = await rafOut.position();
+    //print('inPos: $inPos, outPos: $outPos');
+    await rafIn.readInto(chunk);
+    await rafOut.writeFrom(chunk);
+    //inPos = await rafIn.position();
+    //outPos = await rafOut.position();
+    //print('inPos: $inPos, outPos: $outPos');
+  }
+}
+

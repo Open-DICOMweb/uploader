@@ -1,4 +1,4 @@
-name: 'servers'
+name: 'uploader'
 version: 0.0.1
 description: A set of simple servers for testing
 author: Jim Philbin <jfphilbin@gmail.com>
@@ -8,12 +8,13 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 
 dependencies:
-  odw:
-    path:D:/github/odw/lib/odw.dart
   args: '>=0.13.0 <2.0.0'
+  browser: any
   http: any
   http_parser: any
-  dart_to_js_script_rewriter: '^0.1.0'
+  odwhtml:
+    path: C:/github/sdk2/odwhtml
+#  dart_to_js_script_rewriter: '^0.1.0'
 
-transformers:
-- dart_to_js_script_rewriter
+#transformers:
+#- dart_to_js_script_rewriter

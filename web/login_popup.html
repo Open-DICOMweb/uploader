@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2016, the Open DICOMweb Project.  Please see the AUTHORS file
+  for details. All rights reserved. Use of this source code is governed by a
+  BSD-style license that can be found in the LICENSE file.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ACR Test Uploader</title>
+  <base id="baseDir" href="">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/uploader.css">
+  <script type="application/dart" src="login_popup.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+  <style type="text/css">
+    html,body {
+      margin: 0;
+      padding: 0;
+      }
+    header {
+      display: block;
+      height: 60px;
+      width: 100%;
+      line-height: 40px;
+      padding: 5px;
+      border: 0;
+      background-color: navy;
+      vertical-align: middle;
+      }
+    footer {
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      padding: 2px 20px 2px 4px;
+      border: 0;
+      background-color: navy;
+      vertical-align: middle;
+      color: gold;
+      font-size: 16px;
+      width: 100%;
+      bottom: 0;
+      position: fixed;
+      }
+    section {
+      margin: 8px;
+      }
+
+    #acr-logo {
+      vertical-align: middle;
+      }
+
+    #acr-title {
+      color: gold;
+      font-size: 30px;
+      font-weight: bolder;
+      text-align: left;
+      }
+
+    #acr-header-buttons {
+      display: inline-block;
+      position: relative;
+      float: right;
+      vertical-align: bottom;
+      }
+
+    #acr-copyright {
+      font-weight: bold;
+      }
+    #acr-footer-links {
+      float: right;
+      }
+    #login-popup {
+      backdrop-filter: brightness(60%);
+      display: block;
+      margin: auto;
+      width: 300px;
+      background-color: ghostwhite;
+      border: 1px solid black;
+      padding: 5px;
+      }
+
+    #login-container {
+      display: block;
+      margin: auto;
+      width: 300px;
+      background-color: azure;
+      border: 1px solid black;
+      padding: 5px;
+      }
+
+    label {
+      display: inline-block;
+      width: 60px;
+      text-align: right;
+      margin: 5px 2px 5px 20px;
+      }
+
+    input {
+      display: inline-block;
+      text-align: left;
+      margin: 2px;
+      }
+
+    button {
+      padding: 2px;
+      margin: 5px 5px 5px 5px;
+      }
+
+    #buttons {
+      padding-left: 100px;
+      }
+
+    #acr-connect {
+      font-family: Arial sans-serif;
+      font-weight: bold;
+      font-style: italic;
+      color: blue;
+      }
+  </style>
+</head>
+<body>
+<!--TODO: fix password pattern -->
+<!--TODO: add button icons -->
+<!--TODO: define settings -->
+<header id="acr-header">
+  <img src="assets/spin.svg" id="acr-logo"/>
+  <span id="acr-title">ACR Web Client</span>
+  <menu type="toolbar" id="acr-header-buttons">
+    <input type="button" id="info" title="Contact Information" value="Info"/>I
+    <input type="button" src="assets/spin.svg" id="menu" title="dropdown menu" value="Menu"/>
+    <input type="button" menu="settings-menu" id="settings" title="Change Settings" value="Settings"/>
+  </menu>
+</header>
+<footer>
+  <span id="acr-copyright">
+    <i>Copyright 2016, American College of Radiology</i>
+  </span>
+  <span id="acr-footer-links">contact &nbsp&nbsp&nbsp&nbsp locations</span>
+</footer>
+<section>
+  <h1>The American College of Radiology</h1>
+  <div>
+    <p>
+      The Harvey L. Neiman Health Policy Institute (HPI) will study the value and role of radiology
+    in evolving health care delivery and payment systems, including quality based approaches to
+    care and the impact of medical imaging on overall health care costs. HPI research will provide
+    a foundation for evidence-based imaging policy to improve patient care and bolster efficient,
+    effective use of health care resources.
+    </p>
+    <p><strong>For more information, please visit the Neiman Institute website at </strong>
+      <a href="http://www.neimanhpi.org" target="_blank"><strong>www.neimanhpi.org</strong></a>
+      <strong>.</strong>
+    </p>
+  </div>
+</section>
+<br>
+<br>
+<!-- Simple pop-up dialog box, containing a form -->
+<div>
+<dialog id="login-popup" hidden>
+  <form id="acr-login" onsubmit="{{submitLogin}}">
+    <span id="acr-connect"><big>ACR Connect</big></span>
+    <div class="block" id="dialog-login">
+      <div>
+        <label>Username</label>
+        <input type="text" id="user" title="Username" required placeholder="username" autocomplete="on"
+               width=20>
+      </div>
+      <div>
+        <label class="left-align">Password </label>
+        <!-- add minlength=10 later -->
+        <input type="password" id="pword" pattern="[0-9A-Za-Z]" required placeholder="password">
+      </div>
+    </div>
+    <div class="block" id="buttons">
+      <button id="cancel" type="reset" title="Click to cancel login">Cancel</button>
+      <button type="submit" title="Click to confirm your input">Confirm</button>
+    </div>
+    <span id="message"></span>
+    <span id="errmsg"></span>
+  </form>
+</dialog>
+</div>
+
+  <!-- Context Menus -->
+  <menu type="context" label="Settings" id="settings-menu" hidden>
+    <menuitem label="Action"/>
+    <menuitem label="Another action"/>
+    <menuitem label="Separated action"/>
+  </menu>
+
+  <menu type="context" lable="Menu" id="dropdown-menu" hidden>
+    <menuitem label="Action"/>
+    <menuitem label="Another action"/>
+    <menuitem label="Separated action"/>
+  </menu>
+
+

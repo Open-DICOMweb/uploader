@@ -74,6 +74,9 @@ class DndFiles {
           // ..add(file.lastModifiedDate != null ?
           //       file.lastModifiedDate.toLocal().toString() :
           //       'n/a')
+          //TODO: if media type is longer than the field width use the file extension
+          //TODO: make clicking on the top checkbox mark all the files
+          //TODO: copy the files
       ).toString();
       item.nodes.add(properties);
       list.nodes.add(item);

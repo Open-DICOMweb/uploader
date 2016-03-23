@@ -1,0 +1,50 @@
+{
+  "@type": "site",
+  "@version": "0.1.0",
+  "Columbia 1": {
+    "system": "Columbia-Presbyterian Health System",
+    "programs": {
+      "name": "Program 1",
+      "projects":
+    }
+  }
+}
+
+
+
+
+<datalist id="system">
+<option value="Columbia-Presbyterian">
+<option value="Duke Health System">
+<option value="Johns Hopkins">
+<option value="Univ of Pennsylvania">
+<option value="Yale University Health System">
+</datalist>
+<datalist id="site">
+<option value="Columbia">
+<option value="Duke">
+<option value="Johns Hopkins East Baltimore">
+<option value="Johns Hopkins Bayview">
+<option value="Johns Hopkins Suburban">
+</datalist>
+<datalist id="step">
+<option value="Trial 1">
+<option value="Trial 2">
+<option value="Trial 3">
+<option value="Trial 4">
+<option value="Trial 5">
+</datalist>
+<datalist id="subject">
+<option value="Subject 1">
+<option value="Subject 2">
+<option value="Subject 3">
+<option value="Subject 4">
+<option value="Subject 5">
+</datalist>
+<datalist id="trial">
+<option value="Step 1">
+<option value="Step 2">
+<option value="Step 3">
+<option value="Step 4">
+<option value="Step 5">
+</datalist>
